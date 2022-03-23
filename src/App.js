@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemproviderModed } from "./context/ThemproviderModed"; 
+import GlobalStyle from './styles/GlobalStyle'; // GlobalStyle이 존재하면, 모든 요소에 해당 스타일이 적용된다.
+import TextDivision from './components/TextDivision';
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ThemproviderModed>
+        <TextDivision/>
+        <GlobalStyle/>
+      </ThemproviderModed>
     </div>
   );
 }
