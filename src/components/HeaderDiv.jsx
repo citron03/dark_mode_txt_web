@@ -11,8 +11,8 @@ const HeaderDiv = () => {
         <div>
             <h1>다크 모드 적용 확인</h1>
             {isDarkMode ? 
-                <IoIosCloudyNight onClick={toggleMode} /> : 
-                <BsSunrise onClick={toggleMode} /> }
+                <IoIosCloudyNight onClick={toggleMode} size="50" /> : 
+                <BsSunrise onClick={toggleMode} size="50" /> }
         </div>
     );
 }
