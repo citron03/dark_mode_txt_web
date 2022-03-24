@@ -31,7 +31,8 @@ const useMode = () => {
         } else {
             setIsDarkMode(true);
         }
-    }, [isDarkMode]);
+    }, [isDarkMode, setIsDarkMode]); 
+    // 에러 React Hook useCallback has a missing dependency: 'setIsDarkMode' -> 해결을 위해 useCallback 두 번째 인자 배열에 setIsDarkMode 추가
 
     return [isDarkMode, toggleMode];
 }
