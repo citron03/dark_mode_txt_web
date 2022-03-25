@@ -25,6 +25,19 @@ const TextView = styled.div`
     height: auto;
 `;
 
+const TextHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 0.3rem;
+`;
+
+const ButtonInit = styled.button`
+    background-color: ${({isDark}) => isDark ? '#4b4b4b' : 'white'};
+    color: ${({isDark}) => isDark ? 'white' : 'black'};
+    border-radius: 1rem;
+    font-family: 'GangwonEdu_OTFBoldA';
+`;
+
 const ParagraphEdit = styled.p`
     margin: 0.2rem;
 `;
@@ -52,6 +65,12 @@ const TextDiv = () => {
         setTexts(event.target.value);
     }
 
+    const handleInit = () => {
+        // 처음의 상태로 초기화 한다.
+        setEditMode(false);
+        setTexts("입력 하세요!");
+    }
+
     useEffect(() => {
         const tmpData = localStorage.getItem("texts");
         // 기존 초기값이 아닌 저장된 데이터가 있으면 불러온다.
@@ -67,7 +86,10 @@ const TextDiv = () => {
 
     return (
     <div>
-        <ParagraphEdit>{editMode ? "수정 하세요!" : "당신의 텍스트 입니다."}</ParagraphEdit>
+        <TextHeader>
+            <ParagraphEdit>{editMode ? "수정 하세요!" : "당신의 텍스트 입니다."}</ParagraphEdit>
+            <ButtonInit isDark={isDarkMode} onClick={handleInit}>초기화</ButtonInit>
+        </TextHeader>
         {editMode ? 
             <TextArea onDoubleClick={onViewMode} onChange={(e) => changeTexts(e)} value={texts} isDark={isDarkMode}/> : 
             <pre><TextView onDoubleClick={onEditMode}>{texts}</TextView></pre>}
