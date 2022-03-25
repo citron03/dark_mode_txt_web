@@ -1,4 +1,4 @@
-# dark_mode_memo_web
+# dark_mode_txt_web
 다크 모드 기능이 있는 웹 txt 수정, 퓨어 사이트
 
 * fs 모듈로 파일 입출력 처리를 한다.
